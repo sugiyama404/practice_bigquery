@@ -30,5 +30,11 @@ module "cloud_sql" {
 }
 
 module "bigquery" {
-  source = "./modules/bigquery"
+  source                 = "./modules/bigquery"
+  project_id             = var.project_id
+  region                 = var.region
+  db_user                = var.db_user
+  db_password            = var.db_password
+  db_name                = var.db_name
+  cloudsql_instance_name = module.cloud_sql.cloudsql_instance_name
 }
