@@ -21,10 +21,14 @@ module "gcp_project_services" {
 }
 
 module "cloud_sql" {
-  source      = "./modules/cloud_sql"
+  source      = "./modules/cloudsql"
   project_id  = var.project_id
   region      = var.region
   db_user     = var.db_user
   db_password = var.db_password
   db_name     = var.db_name
+}
+
+module "bigquery" {
+  source = "./modules/bigquery"
 }
