@@ -13,5 +13,6 @@ variable "services" {
   default = [
     "bigquery.googleapis.com",
     "sqladmin.googleapis.com",
+    "bigquerydatatransfer.googleapis.com",
   ]
 }
