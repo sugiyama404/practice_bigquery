@@ -15,6 +15,7 @@ resource "google_project_iam_member" "sa_user" {
   for_each = toset([
     "roles/bigquery.admin",
     "roles/cloudsql.admin",
+    "roles/cloudsql.client",
     "roles/bigquery.dataEditor",
     "roles/bigquery.connectionAdmin",
     "roles/bigquery.connectionUser",

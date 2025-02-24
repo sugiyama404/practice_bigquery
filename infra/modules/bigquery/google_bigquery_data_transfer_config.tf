@@ -8,10 +8,7 @@ resource "google_bigquery_data_transfer_config" "cloud_sql_transfer" {
   service_account_name   = var.service_account_email
 
   params = {
-    cloudSql = jsonencode({
-      instanceId   = "${var.cloudsql_instance_name}",
-      databaseType = "MYSQL"
-    })
+    instanceId   = var.cloudsql_instance_name
     database     = var.db_name
     table        = "sales_data"
     connectionId = google_bigquery_connection.cloudsql_connection.name
