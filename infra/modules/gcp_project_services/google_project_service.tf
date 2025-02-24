@@ -14,5 +14,6 @@ variable "services" {
     "bigquery.googleapis.com",
     "sqladmin.googleapis.com",
     "bigquerydatatransfer.googleapis.com",
+    "servicenetworking.googleapis.com",
   ]
 }

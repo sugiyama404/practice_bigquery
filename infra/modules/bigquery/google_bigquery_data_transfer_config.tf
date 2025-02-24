@@ -5,6 +5,7 @@ resource "google_bigquery_data_transfer_config" "cloud_sql_transfer" {
   schedule               = "every day 03:00"
   project                = var.project_id
   location               = var.region
+  service_account_name   = var.service_account_email
 
   params = {
     cloudSql = jsonencode({

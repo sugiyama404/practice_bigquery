@@ -20,6 +20,14 @@ module "gcp_project_services" {
   region     = var.region
 }
 
+# iam
+module "iam" {
+  source                                 = "./modules/iam"
+  project_id                             = var.project_id
+  region                                 = var.region
+  compute_engine_default_service_account = var.compute_engine_default_service_account
+}
+
 module "cloud_sql" {
   source      = "./modules/cloudsql"
   project_id  = var.project_id
@@ -29,6 +37,7 @@ module "cloud_sql" {
   db_name     = var.db_name
 }
 
+# bigquerry
 module "bigquery" {
   source                 = "./modules/bigquery"
   project_id             = var.project_id
@@ -37,4 +46,5 @@ module "bigquery" {
   db_password            = var.db_password
   db_name                = var.db_name
   cloudsql_instance_name = module.cloud_sql.cloudsql_instance_name
+  service_account_email  = module.iam.service_account_email
 }
